@@ -1,0 +1,13 @@
+---
+interface Props { for?: string }
+const _props: Props = Astro.props;
+---
+
+<details class="my-4">
+  <summary class="cursor-pointer">Proof</summary>
+  <div class="mt-2 pl-2 border-l border-gray-300">
+    <slot />
+  </div>
+</details>
+
+

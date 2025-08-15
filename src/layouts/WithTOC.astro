@@ -1,0 +1,38 @@
+---
+import "katex/dist/katex.min.css";
+import "../styles/global.css";
+
+const { title = "", headings = [] } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title ? `${title} · Math Journal` : 'Math Journal'}</title>
+  </head>
+  <body class="min-h-screen bg-white text-gray-900">
+    <div class="mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-8 px-4 py-8">
+      <article class="prose prose-slate max-w-none">
+        <slot />
+      </article>
+      <aside class="hidden lg:block sticky top-6 h-fit">
+        <nav class="text-sm">
+          <p class="font-semibold mb-2">On this page</p>
+          <ul class="space-y-1">
+            {headings?.map((h) => {
+              const indent = Math.max(0, (h.depth ?? 2) - 2) * 8;
+              return (
+                <li style={`padding-left: ${indent}px`}>
+                  <a href={`#${h.slug}`} class="hover:underline">{h.text}</a>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      </aside>
+    </div>
+  </body>
+</html>
+
+

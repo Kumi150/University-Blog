@@ -1,0 +1,16 @@
+---
+interface Props {
+  id?: string;
+  title?: string;
+}
+const { id, title }: Props = Astro.props;
+---
+
+<section id={id} class="border-l-4 border-emerald-500 pl-4 my-6">
+  <p class="font-semibold">{title ? `Lemma (${title})` : 'Lemma'}</p>
+  <div>
+    <slot />
+  </div>
+</section>
+
+
