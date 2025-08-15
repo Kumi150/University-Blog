@@ -6,8 +6,8 @@ import rehypeMermaidJs from "rehype-mermaidjs";
 
 /** @type {import('astro').AstroUserConfig} */
 export default {
-  site: 'https://ekino.github.io',
-  base: '/math-journal',
+  site: 'https://kumi150.github.io',
+  base: '/University-Blog',
   integrations: [
     mdx({
       remarkPlugins: [remarkMath],
